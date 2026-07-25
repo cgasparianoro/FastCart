@@ -1,0 +1,14 @@
+C:\Users\LapOne MX\Desktop\FastCart\bin\Release\net10.0\FastCart.exe
+C:\Users\LapOne MX\Desktop\FastCart\bin\Release\net10.0\FastCart.deps.json
+C:\Users\LapOne MX\Desktop\FastCart\bin\Release\net10.0\FastCart.runtimeconfig.json
+C:\Users\LapOne MX\Desktop\FastCart\bin\Release\net10.0\FastCart.dll
+C:\Users\LapOne MX\Desktop\FastCart\bin\Release\net10.0\FastCart.pdb
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.AssemblyInfoInputs.cache
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.AssemblyInfo.cs
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.csproj.CoreCompileInputs.cache
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.dll
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\refint\FastCart.dll
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.pdb
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\FastCart.genruntimeconfig.cache
+C:\Users\LapOne MX\Desktop\FastCart\obj\Release\net10.0\ref\FastCart.dll
