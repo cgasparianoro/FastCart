@@ -100,7 +100,15 @@ public class Program
 
         Console.WriteLine("Lista después de eliminar el producto:");
         inventario.MostrarProductos();
+Console.WriteLine();
+Console.WriteLine("5. HISTORIAL CRONOLÓGICO");
+Console.WriteLine("------------------------------------------");
+inventario.ObtenerAuditoria().ImprimirHistorialCronologico();
 
+Console.WriteLine();
+Console.WriteLine("6. HISTORIAL INVERSO");
+Console.WriteLine("------------------------------------------");
+inventario.ObtenerAuditoria().ImprimirHistorialInverso();
         Console.WriteLine();
         Console.WriteLine("Prueba finalizada correctamente.");
     }
