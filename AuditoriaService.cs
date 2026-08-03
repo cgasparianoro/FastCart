@@ -8,19 +8,15 @@ public class AuditoriaService
 
     private NodoAuditoria? cola;
 
-    private int cantidad;
-
     public AuditoriaService()
     {
         cabeza = null;
         cola = null;
-        cantidad = 0;
     }
 
     public void RegistrarEvento(LogMovimiento movimiento)
     {
         NodoAuditoria nuevoNodo = new NodoAuditoria(movimiento);
-
 
         nuevoNodo.Siguiente = null;
         nuevoNodo.Anterior = cola;
@@ -35,8 +31,8 @@ public class AuditoriaService
         }
 
         cola = nuevoNodo;
-
     }
+
     public void ImprimirHistorialCronologico()
     {
         NodoAuditoria? actual = cabeza;
@@ -60,16 +56,14 @@ public class AuditoriaService
 
         while (actual != null)
         {
-        Console.WriteLine(
-    $"[{actual.Dato.Timestamp:yyyy-MM-dd HH:mm:ss}] " +
-    $"{actual.Dato.TipoOperacion} | " +
-    $"SKU: {actual.Dato.SKUAfectado} | " +
-    $"{actual.Dato.Descripcion}"
-);
+            Console.WriteLine(
+                $"[{actual.Dato.Timestamp:yyyy-MM-dd HH:mm:ss}] " +
+                $"{actual.Dato.TipoOperacion} | " +
+                $"SKU: {actual.Dato.SKUAfectado} | " +
+                $"{actual.Dato.Descripcion}"
+            );
 
             actual = actual.Anterior;
         }
     }
-
 }
-
