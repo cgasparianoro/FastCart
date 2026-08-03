@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-
+using FastCart.Fase3;
+using FastCart.Fase3.Models;
 namespace FastCart.Fase2;
 
 /// <summary>
@@ -8,6 +9,7 @@ namespace FastCart.Fase2;
 public class InventarioLista
 {
     private NodoProducto? cabeza;
+    private AuditoriaService auditoria = new AuditoriaService();
 
     /// <summary>
     /// Inserta un producto al inicio.
@@ -19,6 +21,13 @@ public class InventarioLista
         nuevo.Siguiente = cabeza;
 
         cabeza = nuevo;
+        auditoria.RegistrarEvento(new LogMovimiento
+        {
+            Timestamp = DateTime.UtcNow,
+            TipoOperacion = "INSERTAR_INICIO",
+            SKUAfectado = producto.SKU,
+            Descripcion = $"Producto {producto.Nombre} insertado al inicio."
+        });
     }
 
     /// <summary>
@@ -45,8 +54,14 @@ public class InventarioLista
 
         nuevo.Siguiente = actual.Siguiente;
         actual.Siguiente = nuevo;
-    }
-
+        auditoria.RegistrarEvento(new LogMovimiento
+        {
+                Timestamp = DateTime.UtcNow,
+    TipoOperacion = "INSERTAR_ORDENADO",
+    SKUAfectado = producto.SKU,
+    Descripcion = $"Producto {producto.Nombre} insertado ordenadamente."
+});
+        }
     /// <summary>
     /// Busca un producto por SKU.
     /// </summary>
@@ -58,6 +73,13 @@ public class InventarioLista
         {
             if (actual.Data.SKU == sku)
             {
+                auditoria.RegistrarEvento(new LogMovimiento
+{
+    Timestamp = DateTime.UtcNow,
+    TipoOperacion = "BUSQUEDA",
+    SKUAfectado = sku,
+    Descripcion = $"Se consultó el producto {actual.Data.Nombre}."
+});
                 return actual.Data;
             }
 
@@ -78,6 +100,13 @@ public class InventarioLista
         if (cabeza.Data.SKU == sku)
         {
             cabeza = cabeza.Siguiente;
+            auditoria.RegistrarEvento(new LogMovimiento
+{
+    Timestamp = DateTime.UtcNow,
+    TipoOperacion = "ELIMINAR",
+    SKUAfectado = sku,
+    Descripcion = $"Producto con SKU {sku} eliminado."
+});
             return;
         }
 
@@ -88,6 +117,13 @@ public class InventarioLista
             if (actual.Siguiente.Data.SKU == sku)
             {
                 actual.Siguiente = actual.Siguiente.Siguiente;
+                auditoria.RegistrarEvento(new LogMovimiento
+{
+    Timestamp = DateTime.UtcNow,
+    TipoOperacion = "ELIMINAR",
+    SKUAfectado = sku,
+    Descripcion = $"Producto con SKU {sku} eliminado."
+});
                 return;
             }
 
@@ -109,4 +145,8 @@ public class InventarioLista
             actual = actual.Siguiente;
         }
     }
+    public AuditoriaService ObtenerAuditoria()
+{
+    return auditoria;
+}
 }
