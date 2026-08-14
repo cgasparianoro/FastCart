@@ -7,14 +7,16 @@ public class Program
     public static void Main()
     {
         Console.WriteLine("==========================================");
-        Console.WriteLine(" FASTCART - CATÁLOGO MAESTRO - FASE 2");
+        Console.WriteLine(" FASTCART - CATÁLOGO MAESTRO - FASE 3");
         Console.WriteLine("==========================================");
         Console.WriteLine();
 
         InventarioLista inventario = new InventarioLista();
 
-        // Inserción dinámica de 15 productos.
-        // Se usa InsertarOrdenado para mantener el orden ascendente por precio.
+        // =====================================================
+        // INSERCIÓN DINÁMICA DE 15 PRODUCTOS
+        // =====================================================
+
         inventario.InsertarOrdenado(
             new Producto(1001, "Arroz", 45.50m, 30));
 
@@ -60,9 +62,18 @@ public class Program
         inventario.InsertarOrdenado(
             new Producto(1015, "Chocolate", 65.25m, 19));
 
+        // =====================================================
+        // 1. MOSTRAR PRODUCTOS
+        // =====================================================
+
         Console.WriteLine("1. PRODUCTOS ORDENADOS POR PRECIO");
         Console.WriteLine("------------------------------------------");
+
         inventario.MostrarProductos();
+
+        // =====================================================
+        // 2. BÚSQUEDA EXITOSA
+        // =====================================================
 
         Console.WriteLine();
         Console.WriteLine("2. BÚSQUEDA DE UN SKU EXISTENTE");
@@ -78,6 +89,10 @@ public class Program
             Console.WriteLine(error.Message);
         }
 
+        // =====================================================
+        // 3. BÚSQUEDA FALLIDA CONTROLADA
+        // =====================================================
+
         Console.WriteLine();
         Console.WriteLine("3. BÚSQUEDA DE UN SKU INEXISTENTE");
         Console.WriteLine("------------------------------------------");
@@ -92,6 +107,10 @@ public class Program
             Console.WriteLine($"Excepción controlada: {error.Message}");
         }
 
+        // =====================================================
+        // 4. ELIMINACIÓN
+        // =====================================================
+
         Console.WriteLine();
         Console.WriteLine("4. ELIMINACIÓN DEL SKU 1007");
         Console.WriteLine("------------------------------------------");
@@ -100,16 +119,38 @@ public class Program
 
         Console.WriteLine("Lista después de eliminar el producto:");
         inventario.MostrarProductos();
-Console.WriteLine();
-Console.WriteLine("5. HISTORIAL CRONOLÓGICO");
-Console.WriteLine("------------------------------------------");
-inventario.ObtenerAuditoria().ImprimirHistorialCronologico();
 
-Console.WriteLine();
-Console.WriteLine("6. HISTORIAL INVERSO");
-Console.WriteLine("------------------------------------------");
-inventario.ObtenerAuditoria().ImprimirHistorialInverso();
+        // =====================================================
+        // 5. HISTORIAL CRONOLÓGICO
+        // =====================================================
+
         Console.WriteLine();
+        Console.WriteLine("==========================================");
+        Console.WriteLine("5. HISTORIAL CRONOLÓGICO");
+        Console.WriteLine("==========================================");
+
+        inventario.ObtenerAuditoria()
+                  .ImprimirHistorialCronologico();
+
+        // =====================================================
+        // 6. HISTORIAL INVERSO
+        // =====================================================
+
+        Console.WriteLine();
+        Console.WriteLine("==========================================");
+        Console.WriteLine("6. HISTORIAL INVERSO");
+        Console.WriteLine("==========================================");
+
+        inventario.ObtenerAuditoria()
+                  .ImprimirHistorialInverso();
+
+        // =====================================================
+        // FINAL
+        // =====================================================
+
+        Console.WriteLine();
+        Console.WriteLine("==========================================");
         Console.WriteLine("Prueba finalizada correctamente.");
+        Console.WriteLine("==========================================");
     }
 }
