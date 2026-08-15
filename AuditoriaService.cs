@@ -5,7 +5,6 @@ namespace FastCart.Fase3;
 
 /// <summary>
 /// Administra la bitácora de auditoría mediante una lista doblemente enlazada.
-/// Permite registrar eventos y recorrer el historial en ambos sentidos.
 /// </summary>
 public class AuditoriaService
 {
@@ -22,11 +21,9 @@ public class AuditoriaService
     }
 
     /// <summary>
-    /// Registra un nuevo movimiento al final de la bitácora de auditoría.
+    /// Registra un nuevo movimiento al final de la bitácora.
     /// </summary>
-    /// <param name="movimiento">
-    /// Movimiento que contiene la información de la operación realizada.
-    /// </param>
+    /// <param name="movimiento">Movimiento que se registrará.</param>
     public void RegistrarEvento(LogMovimiento movimiento)
     {
         NodoAuditoria nuevoNodo = new NodoAuditoria(movimiento);
@@ -47,9 +44,7 @@ public class AuditoriaService
     }
 
     /// <summary>
-    /// Imprime en consola el historial de auditoría
-    /// en orden cronológico, desde el evento más antiguo
-    /// hasta el más reciente.
+    /// Imprime el historial desde el evento más antiguo hasta el más reciente.
     /// </summary>
     public void ImprimirHistorialCronologico()
     {
@@ -69,9 +64,7 @@ public class AuditoriaService
     }
 
     /// <summary>
-    /// Imprime en consola el historial de auditoría
-    /// en orden inverso, desde el evento más reciente
-    /// hasta el más antiguo.
+    /// Imprime el historial desde el evento más reciente hasta el más antiguo.
     /// </summary>
     public void ImprimirHistorialInverso()
     {
